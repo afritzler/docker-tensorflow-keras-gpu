@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:1.0.1-devel-gpu
+FROM tensorflow/tensorflow:latest-gpu
 
 MAINTAINER Andreas Fritzler <andreas.fritzler@gmail.com>
 
