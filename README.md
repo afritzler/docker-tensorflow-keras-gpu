@@ -15,7 +15,7 @@ kubectl create -f example-pod.yaml
 
 Attach to the running container
 ```
-kubectl attach ...
+kubectl exec -it tensorflow-keras-gpu -- /bin/bash
 ```
 
 # References
@@ -27,4 +27,4 @@ kubectl attach ...
 
 [4] https://kubernetes.io/docs/user-guide/kubectl/kubectl_create/
 
-[5] https://kubernetes.io/docs/user-guide/kubectl/kubectl_attach/
+[5] https://kubernetes.io/docs/user-guide/kubectl/kubectl_exec/
