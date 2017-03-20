@@ -1,5 +1,5 @@
 # docker-tensorflow-keras-gpu
-Base image with Tensorflow and Keras with GPU support
+Base image with Tensorflow and Keras with GPU support. The purpose of this project is to run a single Pod on Kubernetes on a GPU backed node.
 
 # Run it on Kubernetes
 
