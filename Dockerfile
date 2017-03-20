@@ -6,4 +6,4 @@ RUN pip --no-cache-dir install keras
 
 RUN git clone https://github.com/fchollet/keras.git
 
-RUN ["sleep 3600"]
+RUN ["/bin/bash"]
