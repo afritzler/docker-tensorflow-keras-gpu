@@ -54,18 +54,18 @@ RUN curl -O https://bootstrap.pypa.io/get-pip.py && \
 RUN pip --no-cache-dir install \
 		pyopenssl \
 		ndg-httpsclient \
-		pyasn1 \
-		numpy
+		pyasn1
 
 RUN apt-get update && apt-get install -y \
-		python-scipy \
-		python-nose \
+		python-numpy \
+#		python-scipy \
+#		python-nose \
 		python-h5py \
-		python-skimage \
+#		python-skimage \
 		python-matplotlib \
 		python-pandas \
-		python-sklearn \
-		python-sympy \
+#		python-sklearn \
+#		python-sympy \
 		python-setuptools \
 		swig \
 		&& \
@@ -78,7 +78,7 @@ RUN add-apt-repository -y ppa:openjdk-r/ppa && \
     apt-get install -y --no-install-recommends openjdk-8-jdk openjdk-8-jre-headless && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-    
+
 RUN echo "startup --batch" >>/root/.bazelrc
 RUN echo "build --spawn_strategy=standalone --genrule_strategy=standalone" \
     >>/root/.bazelrc
@@ -108,7 +108,7 @@ ENV TF_NEED_CUDA=1 \
      CUDNN_INSTALL_PATH=/usr/local/cuda \
      TF_CUDA_COMPUTE_CAPABILITIES=3.5,3.7,5.2,6.0 \
      CC_OPT_FLAGS="--copt=-mavx --copt=-mavx2 --copt=-mfma --copt=-msse4.2 --copt=-mfpmath=both --config=cuda" \
-     PYTHON_BIN_PATH="/usr/bin/python3" \
+     PYTHON_BIN_PATH="/usr/bin/python" \
      USE_DEFAULT_PYTHON_LIB_PATH=1 \
      TF_NEED_JEMALLOC=1 \
      TF_NEED_GCP=0 \
@@ -120,8 +120,9 @@ RUN ./configure && \
     bazel build -c opt --copt=-mavx --copt=-mavx2 --copt=-mfma --copt=-msse4.2 --copt=-mfpmath=both --config=cuda tensorflow/tools/pip_package:build_pip_package && \
     bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/pip && \
     pip install --upgrade /tmp/pip/tensorflow-*.whl && \
-    rm -rf /root/.cache
-    
+    rm -rf /root/.cache \
+		rm -rf /tensorflow
+
 RUN pip --no-cache-dir install git+https://github.com/fchollet/keras.git@${KERAS_VERSION}
 
 RUN git clone https://github.com/fchollet/keras.git
