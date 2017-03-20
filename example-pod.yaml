@@ -8,6 +8,8 @@ spec:
   containers:
   - name: tensorflow-keras-gpu
     image: afritzler/tensorflow-keras-gpu
-    imagePullPolicy: IfNotPresent
+    resources:
+      limits:
+        alpha.kubernetes.io/nvidia-gpu: 1
   nodeSelector:
     gpu: "true"
