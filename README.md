@@ -17,3 +17,10 @@ Attach to the running container
 ```
 kubectl attach ...
 ```
+
+# References
+[1] https://www.tensorflow.org/
+[2] https://keras.io/
+[3] https://kubernetes.io/docs/user-guide/kubectl/kubectl_label/
+[4] https://kubernetes.io/docs/user-guide/kubectl/kubectl_create/
+[5] https://kubernetes.io/docs/user-guide/kubectl/kubectl_attach/
