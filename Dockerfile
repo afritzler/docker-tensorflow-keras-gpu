@@ -32,7 +32,6 @@ RUN apt-get update && apt-get install -y \
 		nano \
 		pkg-config \
 		python-dev \
-		python3-dev \
 		software-properties-common \
 		unzip \
 		vim \
@@ -55,10 +54,10 @@ RUN curl -O https://bootstrap.pypa.io/get-pip.py && \
 RUN pip --no-cache-dir install \
 		pyopenssl \
 		ndg-httpsclient \
-		pyasn1
+		pyasn1 \
+		numpy
 
 RUN apt-get update && apt-get install -y \
-		python-numpy \
 		python-scipy \
 		python-nose \
 		python-h5py \
