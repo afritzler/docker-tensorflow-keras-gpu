@@ -4,8 +4,6 @@ MAINTAINER Andreas Fritzler <andreas.fritzler@gmail.com>
 
 RUN pip --no-cache-dir install keras
 
-COPY ./keyboard /etc/default/keyboard
-
 RUN DEBIAN_FRONTEND=noninteractive \
 	apt-get update && apt-get install -qq -y \
 	git \
