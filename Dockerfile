@@ -4,9 +4,9 @@ MAINTAINER Andreas Fritzler <andreas.fritzler@gmail.com>
 
 RUN pip --no-cache-dir install keras
 
-RUN apt-get update && apt-get install -y --no-install-recommends--no-install-recommends \
+RUN apt-get update && apt-get install -y --no-install-recommends \
 	git \
-	nvidia-375 \ 
+	nvidia-375 \
 	cuda-8-0 \
 	&& rm -rf /var/lib/apt/lists/*
 
