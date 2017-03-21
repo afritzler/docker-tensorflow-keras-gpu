@@ -9,8 +9,6 @@ COPY ./keyboard /etc/default/keyboard
 RUN DEBIAN_FRONTEND=noninteractive \
 	apt-get update && apt-get install -qq -y \
 	git \
-	nvidia-375 \
-	cuda-8-0 \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/fchollet/keras.git /keras
