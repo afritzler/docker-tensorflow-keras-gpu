@@ -3,12 +3,12 @@ Base image with Tensorflow and Keras with GPU support. The purpose of this proje
 
 # Run it on Kubernetes
 
-First, we need to label the gpu instance (if not already done)
+First, we need to label the gpu instance (if not already done). If you choose to use a different labeling, you need to adjust the `nodeSelector` part in the `example-pod.yaml` file.
 ```
 kubectl label node <NODE_NAME> gpu="true"
 ```
 
-__Tricky part ahead:___
+__Tricky part ahead:__
 
 In order to use the GPU inside your docker container, you need to pass the location of the NVidia driver on the host into your container. Since the GPU kernel driver on the host has to match the nvidia-driver inside the contianer, we want to decouple that. Adjust the `path` in the `example-pod.yaml` file in case your nvidia-driver location is different. 
 
