@@ -4,7 +4,10 @@ MAINTAINER Andreas Fritzler <andreas.fritzler@gmail.com>
 
 RUN pip --no-cache-dir install keras
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+COPY ./keyboard /etc/default/keyboard
+
+RUN DEBIAN_FRONTEND=noninteractive \
+	apt-get update && apt-get install -qq -y \
 	git \
 	nvidia-375 \
 	cuda-8-0 \
