@@ -11,5 +11,14 @@ spec:
     resources:
       limits:
         alpha.kubernetes.io/nvidia-gpu: 1
+    volumeMounts:
+      - name: nvidia-driver
+        mountPath: /usr/local/nvidia
+        readOnly: true
+  restartPolicy: Never
   nodeSelector:
     gpu: "true"
+  volumes:
+    - name: nvidia-driver
+      hostPath:
+        path: /var/lib/nvidia-docker/volumes/nvidia_driver/latest
